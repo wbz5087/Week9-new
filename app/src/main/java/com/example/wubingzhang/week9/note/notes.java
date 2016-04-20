@@ -41,24 +41,20 @@ public class notes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(notes.this, com.example.wubingzhang.week9.note.addNotes.class);
                 startActivityForResult(intent, 0);
-                getData();
+                finish();
             }
         });
 
 
         notesList = (ListView)findViewById(R.id.notesList);
-        noteClass note1 = new noteClass("ff","22");
-        noteClass note2 = new noteClass("fsdf","22");
-        list.add(note1);
-        list.add(note2);
 
-
+        getData();
 
         ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
         for(int i=0;i<list.size();i++)
         {
             HashMap<String, String> map = new HashMap<String, String>();
-            map.put("ItemTitle", list.get(i).getTitle() +list.size());
+            map.put("ItemTitle", list.get(i).getTitle());
             map.put("ItemText", list.get(i).getContent());
             mylist.add(map);
         }

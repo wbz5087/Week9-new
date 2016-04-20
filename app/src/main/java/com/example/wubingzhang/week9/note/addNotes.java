@@ -20,17 +20,21 @@ public class addNotes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
-        final noteClass note = new noteClass("1","2");
 
         backToNotes = (Button)findViewById(R.id.backToNote);
         backToNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                label = (EditText)findViewById(R.id.nameOfNote);
+                content = (EditText)findViewById(R.id.contentOfNote);
+                String title = label.getText().toString();
+                String context = content.getText().toString();
+                final noteClass note = new noteClass(title,context);
                 Intent intent = new Intent(addNotes.this,notes.class);
                 //Bundle bundle = new Bundle();
-                intent.putExtra("note",note);
+                intent.putExtra("note", note);
                 //intent.putExtras(bundle);
-                setResult(RESULT_OK,intent);
+                startActivity(intent);
                 finish();
             }
         });
