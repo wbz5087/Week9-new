@@ -3,6 +3,7 @@ package com.example.wubingzhang.week9.note;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,12 +30,14 @@ public class addNotes extends AppCompatActivity {
                 content = (EditText)findViewById(R.id.contentOfNote);
                 String title = label.getText().toString();
                 String context = content.getText().toString();
-                final noteClass note = new noteClass(title,context);
+                noteClass note = new noteClass(title,context);
                 Intent intent = new Intent(addNotes.this,notes.class);
+                Log.i("xxxx",note.getTitle());
                 //Bundle bundle = new Bundle();
                 intent.putExtra("note", note);
                 //intent.putExtras(bundle);
-                startActivity(intent);
+                setResult(RESULT_OK, intent);
+                //startActivity(intent);
                 finish();
             }
         });
