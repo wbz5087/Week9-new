@@ -15,11 +15,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wubingzhang.week9.R;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,24 +40,25 @@ public class notes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(notes.this, com.example.wubingzhang.week9.note.addNotes.class);
-                startActivityForResult(intent, 1);
-                notes.this.finish();
+                startActivityForResult(intent, 0);
+                getData();
             }
         });
 
-        notesList = (ListView)findViewById(R.id.notesList);
 
+        notesList = (ListView)findViewById(R.id.notesList);
         noteClass note1 = new noteClass("ff","22");
         noteClass note2 = new noteClass("fsdf","22");
         list.add(note1);
         list.add(note2);
 
 
+
         ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
-        for(int i=0;i<2;i++)
+        for(int i=0;i<list.size();i++)
         {
             HashMap<String, String> map = new HashMap<String, String>();
-            map.put("ItemTitle", list.get(i).getTitle());
+            map.put("ItemTitle", list.get(i).getTitle() +list.size());
             map.put("ItemText", list.get(i).getContent());
             mylist.add(map);
         }
@@ -76,6 +79,14 @@ public class notes extends AppCompatActivity {
     static class ViewHolder{
         public TextView title;
         public TextView content;
+    }
+
+    public void getData(){
+        Serializable extra = getIntent().getSerializableExtra("note");
+        if(extra!=null){
+            noteClass note = (noteClass)extra;
+            list.add(note);
+        }
     }
 
 //    public class notesAdapter extends ArrayAdapter<noteClass>{
