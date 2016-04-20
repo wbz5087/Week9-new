@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".account.account"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Accounts"
+            android:textSize="65px"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="analysis"
+            android:id="@+id/analysis"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="enter cost"
+            android:id="@+id/addCost"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="save"
+            android:id="@+id/saveCost"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="food"
+                android:id="@+id/food"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="Cloth"
+                android:id="@+id/cloth"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="Study"
+                android:id="@+id/study"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="Entertain"
+                android:id="@+id/entertain"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="Transport"
+                android:id="@+id/transport"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:text="Fee"
+                android:id="@+id/fee"/>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
